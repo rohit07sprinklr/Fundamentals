@@ -101,12 +101,51 @@
 // alert( "Sum=" + calculator.sum() );
 // alert( "Mul=" + calculator.mul() );
 
-function Accumulator(initVal){
-    this.value = initVal;
-    this.read = function(){
-        let cur = prompt('Enter value')
-        this.value += cur
-    }
-}
+// function Accumulator(initVal){
+//     this.value = initVal;
+//     this.read = function(){
+//         let cur = prompt('Enter value')
+//         this.value += cur
+//     }
+// }
 
-alert(accumulator.value); 
+// alert(accumulator.value); 
+
+// let salaries = {
+//     "John": 100,
+//     "Pete": 300,
+//     "Mary": 250
+//   };
+
+// const sumSalaries = (salaries)=>{
+//     return Object.entries(salaries).reduce((sum,key)=>{
+//         return sum+key[1]
+//     },0)
+// }
+// alert( sumSalaries(salaries) );
+
+// let user = { name: "John", years: 30, isAdmin: true};
+// let {name, years:age, isAdmin = false} = user
+// console.log(name)
+// console.log(age)
+// console.log(isAdmin)
+
+let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 50
+  };
+
+  function topSalary(salaries){
+    let curMax = 0;
+    return Object.entries(salaries).reduce((res,salary)=>{
+        let [name,inc] = salary;
+        if(inc>curMax){
+            console.log(inc,name)
+            res = name
+            curMax = inc
+        }
+        return res
+    },"")
+  }
+  alert(topSalary(salaries))
