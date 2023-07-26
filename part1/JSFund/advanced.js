@@ -61,43 +61,74 @@
 
 // alert( arr.filter(inArray([1, 2, 10])) ); // 1,2
 
-let users = [
-    { name: "John", age: 20, surname: "Johnson" },
-    { name: "Pete", age: 18, surname: "Peterson" },
-    { name: "Ann", age: 19, surname: "Hathaway" }
-];
+// let users = [
+//     { name: "John", age: 20, surname: "Johnson" },
+//     { name: "Pete", age: 18, surname: "Peterson" },
+//     { name: "Ann", age: 19, surname: "Hathaway" }
+// ];
 
-function byField(feild){
-    return function(a,b){
-        return a[feild]>b[feild]?1:-1;
+// function byField(feild){
+//     return function(a,b){
+//         return a[feild]>b[feild]?1:-1;
+//     }
+// }
+
+
+// users.sort(byField('name'));
+// // users.sort((a, b) => a.name > b.name ? 1 : -1);
+// console.log(users)
+// // users.sort((a, b) => a.age > b.age ? 1 : -1);
+// users.sort(byField('age'));
+// console.log(users)
+
+// function makeCounter() {
+//     // let counter;
+
+//     function counter() {
+//       return counter.count++;
+//     };
+
+//     counter.set = value => count = value
+  
+//     counter.count = 0;
+  
+//     return counter;
+//   }
+  
+// let counter = makeCounter();
+
+// function sum(a){
+//   let val = a;
+//   function f(b){
+//     val+=b;
+//     return f;
+//   }
+//   f.toString = function(){
+//     return val;
+//   }
+//   return f;
+// }
+// console.log(sum(1)(2)(3))
+
+function printNumbers(from, to){
+  setTimeout(()=>{
+    console.log(from);
+    if(from<to){
+      printNumbers(from+1,to)
     }
+  },1000)
 }
 
-
-users.sort(byField('name'));
-// users.sort((a, b) => a.name > b.name ? 1 : -1);
-console.log(users)
-// users.sort((a, b) => a.age > b.age ? 1 : -1);
-users.sort(byField('age'));
-console.log(users)
-
-function makeCounter() {
-    // let counter;
-
-    function counter() {
-      return counter.count++;
-    };
-
-    counter.set = value => count = value
-  
-    counter.count = 0;
-  
-    return counter;
-  }
-  
-let counter = makeCounter();
-
-function sum(a){
-  
+function printInterval(from,to){
+  let currVal = from;
+  const interval = setInterval(()=>{
+    console.log(currVal);
+    
+    if(currVal===to){
+      clearInterval(interval)
+    }
+    currVal+=1;
+  },1000)
 }
-sum(1)
+printInterval(3,10);
+// printNumbers(5,10)
